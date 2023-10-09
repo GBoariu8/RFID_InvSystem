@@ -4,14 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8373c6f-6b61-4763-b9d4-ef8d699de2e8" name="Changes" comment="" />
+    <list default="true" id="f8373c6f-6b61-4763-b9d4-ef8d699de2e8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/rfid_inventorysystem/Data/Access/DatabaseAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/rfid_inventorysystem/Data/Access/DatabaseAccessImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2WX4PJY0UBdEUG5mCklfTh6moKe" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
