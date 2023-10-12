@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- License Header omitted for brevity -->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" stylesheets="@../Styles/stylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rfid_invsys.rfid_invsys.Controllers.MainController">
+  <children>
+    <fx:include source="menubar.fxml" />
+    <SplitPane focusTraversable="true" prefHeight="619.0" prefWidth="920.0" stylesheets="@../Styles/stylesheet.css" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane prefHeight="486.0" prefWidth="900.0" stylesheets="@../Styles/stylesheet.css">
+          <children>
+              <ScrollPane prefHeight="-1.0" prefWidth="-1.0" stylesheets="@../Styles/stylesheet.css">
+                <content>
+                  <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="374.0" prefWidth="427.0" stylesheets="@../Styles/stylesheet.css">
+                    <children>
+                              <TextArea fx:id="FXML_TextArea" prefHeight="434.0" prefWidth="434.0" stylesheets="@../Styles/stylesheet.css" />
+                    </children>
+                  </AnchorPane>
+                </content>
+              </ScrollPane>
+                  <TabPane layoutX="428.0" prefHeight="434.0" prefWidth="472.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Untitled Tab 1" />
+                      <Tab text="Untitled Tab 2" />
+                    </tabs>
+                  </TabPane>
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_RIGHT" spacing="5.0" stylesheets="@../Styles/stylesheet.css" VBox.vgrow="NEVER">
+      <children>
+        <fx:include source="footer.fxml" />
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>

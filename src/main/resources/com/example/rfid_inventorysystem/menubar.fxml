@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/stylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rfid_invsys.rfid_invsys.Controllers.MenuController">
+
+    <MenuBar fx:id="FXML_MenuBar" prefHeight="22.0" prefWidth="600.0" stylesheets="@../Styles/stylesheet.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <menus>
+            <Menu fx:id="FXML_FileMenu" mnemonicParsing="false" text="File">
+                <items>
+                    <MenuItem fx:id="FXML_Connect" mnemonicParsing="false" onAction="#Hndl_Connect" text="Connect" />
+                    <MenuItem fx:id="FXML_Exit" mnemonicParsing="false" onAction="#Hndl_Exit" text="Exit" />
+                </items>
+            </Menu>
+         <Menu mnemonicParsing="false" text="Power">
+           <items>
+             <MenuItem mnemonicParsing="false" onAction="#Hndl_GetPwrLvl" text="Get Power Level" />
+               <Menu mnemonicParsing="false" text="Set Power Level">
+                 <items>
+                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl5" text="5 dDm" />
+                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl10" text="10 dDm" />
+                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl15" text="15 dBm" />
+                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl20" text="20 dBm" />
+                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl25" text="25 dBm" />
+                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl30" text="30 dBm" />
+                 </items>
+               </Menu>
+           </items>
+         </Menu>
+         <Menu mnemonicParsing="false" text="Region">
+           <items>
+             <MenuItem mnemonicParsing="false" onAction="#Hndl_GetRegion" text="Get Region" />
+               <Menu mnemonicParsing="false" text="Set Region">
+                  <items>
+                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetRegionChina900" text="China 900M" />
+                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetRegionChina800" text="China 800M" />
+                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetRegionUS" text="US" />
+                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetRegionEurope" text="Europe" />
+                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetRegionKorea" text="Korea" />
+                  </items>
+               </Menu>
+           </items>
+         </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+                <items>
+                    <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+                </items>
+            </Menu>
+        </menus>
+        <tooltip>
+            <Tooltip text="Empty Tooltip">
+                <font>
+                    <Font size="5.0" />
+                </font>
+            </Tooltip>
+        </tooltip>
+    </MenuBar>
+   <Label fx:id="FXML_ConnectionStatus" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="473.0" prefHeight="22.0" prefWidth="179.0" stylesheets="@../Styles/stylesheet.css" text="Status: NOT CONNECTED" AnchorPane.rightAnchor="0.0" />
+
+</AnchorPane>

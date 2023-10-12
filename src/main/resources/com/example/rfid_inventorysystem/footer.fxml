@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="25.0" prefWidth="600.0" spacing="10" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rfid_invsys.rfid_invsys.Controllers.FooterController">
+
+    <Pane HBox.hgrow="ALWAYS" />
+
+    <Label fx:id="FXML_TimeDataLabel" alignment="CENTER_RIGHT" text="Right status" HBox.hgrow="ALWAYS">
+        <font>
+            <Font size="11.0" />
+        </font>
+        <textFill>
+            <Color red="0.625" green="0.625" blue="0.625" />
+        </textFill>
+    </Label>
+
+</HBox>

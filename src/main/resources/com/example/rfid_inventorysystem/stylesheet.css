@@ -1,0 +1,59 @@
+/* Apply a background color to the root container */
+.root {
+    -fx-background-color: #2D2D2D;
+}
+
+/* Style the MenuBar */
+.menu-bar {
+    -fx-background-color: #1F1F1F;
+    -fx-padding: 5px 10px;
+}
+
+.menu {
+    -fx-text-fill: #FFFFFF;
+}
+
+.menu-item {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: #FFFFFF;
+}
+
+.menu-item:hover {
+    -fx-background-color: #3C3C3C;
+}
+
+/* Style the TextArea */
+.text-area {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: #FFFFFF;
+    -fx-control-inner-background: #1F1F1F;
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+    -fx-border-color: #3C3C3C;
+    -fx-padding: 5px;
+    -fx-margin: 5px;
+}
+
+/* Style the Labels */
+.label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+    -fx-padding: 5px;
+}
+
+/* Style the SplitPane */
+.split-pane {
+    -fx-padding: 10px;
+}
+
+.split-pane .divider {
+    -fx-background-color: #3C3C3C;
+}
+
+/* Style the HBox at the bottom */
+.hbox {
+    -fx-background-color: #1F1F1F;
+    -fx-padding: 5px 10px;
+    -fx-alignment: center-right;
+}
