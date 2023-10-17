@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="RFID_InventorySystem">
+    <output-path>$PROJECT_DIR$/out/artifacts/RFID_InventorySystem</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.example.rfid_inventorysystem.UI.App" />
+        <option name="description" value="" />
+        <option name="height" value="650" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="RFID Inventory System" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+        <option name="width" value="1000" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="RFID_InventorySystem.jar">
+        <element id="module-output" name="RFID_InventorySystem" />
+      </element>
+    </root>
+  </artifact>
+</component>
