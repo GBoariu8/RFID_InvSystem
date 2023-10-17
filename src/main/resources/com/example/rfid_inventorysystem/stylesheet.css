@@ -22,17 +22,39 @@
     -fx-background-color: #3C3C3C;
 }
 
+.button {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: #FFFFFF;
+    -fx-min-width: 100px;
+    -fx-min-height: 50px;
+    -fx-max-width: 300px;
+    -fx-max-height: 50px;
+
+
+}
+.button:hover{
+    -fx-background-color: #1C3C3C;
+}
+
 /* Style the TextArea */
 .text-area {
     -fx-background-color: #1F1F1F;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #000000;
     -fx-control-inner-background: #1F1F1F;
-    -fx-font-size: 12px;
-    -fx-font-weight: normal;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
     -fx-border-color: #3C3C3C;
     -fx-padding: 5px;
     -fx-margin: 5px;
 }
+
+.text-area .content {
+    -fx-background-image: url('eberspaecher.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 450 450;
+    -fx-background-position: center center;
+}
+
 
 /* Style the Labels */
 .label {
@@ -57,3 +79,149 @@
     -fx-padding: 5px 10px;
     -fx-alignment: center-right;
 }
+
+/* Apply a background color to the root container */
+.root {
+    -fx-background-color: #2D2D2D;
+}
+
+/* Style the MenuBar */
+.menu-bar {
+    -fx-background-color: #1F1F1F;
+    -fx-padding: 5px 10px;
+}
+
+.menu {
+    -fx-text-fill: #FFFFFF;
+}
+
+.menu-item {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: #FFFFFF;
+}
+
+.menu-item:hover {
+    -fx-background-color: #3C3C3C;
+}
+
+.button {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: #FFFFFF;
+    -fx-min-width: 100px;
+    -fx-min-height: 50px;
+    -fx-max-width: 300px;
+    -fx-max-height: 50px;
+
+
+}
+.button:hover{
+    -fx-background-color: #1C3C3C;
+}
+
+/* Style the TextArea */
+.text-area {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: #000000;
+    -fx-control-inner-background: #1F1F1F;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-border-color: #3C3C3C;
+    -fx-padding: 5px;
+    -fx-margin: 5px;
+}
+
+.text-area .content {
+    -fx-background-image: url('eberspaecher.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 450 450;
+    -fx-background-position: center center;
+}
+
+
+/* Style the Labels */
+.label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+    -fx-padding: 5px;
+}
+
+/* Style the SplitPane */
+.split-pane {
+    -fx-padding: 10px;
+}
+
+.split-pane .divider {
+    -fx-background-color: #3C3C3C;
+}
+
+/* Style the HBox at the bottom */
+.hbox {
+    -fx-background-color: #1F1F1F;
+    -fx-padding: 5px 10px;
+    -fx-alignment: center-right;
+}
+
+/* Style the TableView */
+.table-view {
+    -fx-background-color: #1F1F1F;
+    -fx-border-color: #3C3C3C;
+    -fx-padding: 5px;
+    -fx-table-cell-border-color: transparent;
+}
+
+/* Style the Table Header */
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header .label {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #3C3C3C;
+    -fx-alignment: center;
+}
+
+/* Style the Table Rows */
+.table-row-cell {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #3C3C3C;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #3C3C3C;
+}
+
+/* Style the Table Cells */
+.table-cell {
+    -fx-text-fill: #FFFFFF;
+    -fx-alignment: center;
+    -fx-border-color: #3C3C3C;
+}
+
+/* Style the Table Columns */
+.table-column {
+    -fx-alignment: center;
+    -fx-min-width: 100px;
+}
+
+/* Style the TextField */
+.text-field {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #3C3C3C;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+}
+
+/* Style the TextField when focused */
+.text-field:focused {
+    -fx-border-color: #FFFFFF;
+}
+
+.tab-pane > .tab-content-area {
+    -fx-background-color: #2D2D2D; /* Dark background color */
+}
+
+
+

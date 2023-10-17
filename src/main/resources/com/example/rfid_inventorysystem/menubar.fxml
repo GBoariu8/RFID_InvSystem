@@ -4,14 +4,10 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Styles/stylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rfid_invsys.rfid_invsys.Controllers.MenuController">
-
-    <MenuBar fx:id="FXML_MenuBar" prefHeight="22.0" prefWidth="600.0" stylesheets="@../Styles/stylesheet.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <menus>
+<AnchorPane stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rfid_inventorysystem.UI.Controllers.MenuController">
+    <MenuBar fx:id="FXML_MenuBar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">        <menus>
             <Menu fx:id="FXML_FileMenu" mnemonicParsing="false" text="File">
                 <items>
                     <MenuItem fx:id="FXML_Connect" mnemonicParsing="false" onAction="#Hndl_Connect" text="Connect" />
@@ -47,20 +43,19 @@
                </Menu>
            </items>
          </Menu>
+         <Menu mnemonicParsing="false" text="Database">
+           <items>
+             <MenuItem mnemonicParsing="false" onAction="#Hndl_DBConnect" text="Connect" />
+               <MenuItem mnemonicParsing="false" text="Update Table" />
+               <MenuItem mnemonicParsing="false" onAction="#Hndl_DBDisconnect" text="Disconnect" />
+           </items>
+         </Menu>
             <Menu mnemonicParsing="false" text="Help">
                 <items>
                     <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
                 </items>
             </Menu>
         </menus>
-        <tooltip>
-            <Tooltip text="Empty Tooltip">
-                <font>
-                    <Font size="5.0" />
-                </font>
-            </Tooltip>
-        </tooltip>
     </MenuBar>
-   <Label fx:id="FXML_ConnectionStatus" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="473.0" prefHeight="22.0" prefWidth="179.0" stylesheets="@../Styles/stylesheet.css" text="Status: NOT CONNECTED" AnchorPane.rightAnchor="0.0" />
-
+    <Label fx:id="FXML_ConnectionStatus" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="22.0" stylesheets="@stylesheet.css" text="Status: NOT CONNECTED" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
 </AnchorPane>

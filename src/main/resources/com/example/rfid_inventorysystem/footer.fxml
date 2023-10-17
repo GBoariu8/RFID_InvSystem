@@ -5,9 +5,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
 
-<HBox prefHeight="25.0" prefWidth="600.0" spacing="10" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rfid_invsys.rfid_invsys.Controllers.FooterController">
+<HBox prefHeight="25.0" prefWidth="950.0" spacing="10" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rfid_inventorysystem.UI.Controllers.FooterController">
 
+    <Button fx:id="FXML_ClearButton" text="Clear Info Panel" onAction="#Hndl_ClearTextArea" prefWidth="100" prefHeight="40" />
+
+    <!-- This Pane will push all other elements to the right -->
     <Pane HBox.hgrow="ALWAYS" />
 
     <Label fx:id="FXML_TimeDataLabel" alignment="CENTER_RIGHT" text="Right status" HBox.hgrow="ALWAYS">

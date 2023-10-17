@@ -1,2 +1,9 @@
-package com.example.rfid_inventorysystem;public class Main {
+package com.example.rfid_inventorysystem;
+
+import com.example.rfid_inventorysystem.UI.App;
+
+public class Main {
+    public static void main(String[] args) {
+        App.main(args);
+    }
 }
