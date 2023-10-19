@@ -1,4 +1,6 @@
 package com.example.rfid_inventorysystem.Service.Inventory;
 
-public class InventoryServiceImpl {
+import com.example.rfid_inventorysystem.Data.Access.DatabaseAccess;
+
+public class InventoryServiceImpl implements InventoryService{
 }

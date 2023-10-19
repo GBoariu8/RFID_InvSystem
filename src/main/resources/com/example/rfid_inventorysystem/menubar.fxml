@@ -8,27 +8,23 @@
 
 <AnchorPane stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rfid_inventorysystem.UI.Controllers.MenuController">
     <MenuBar fx:id="FXML_MenuBar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">        <menus>
-            <Menu fx:id="FXML_FileMenu" mnemonicParsing="false" text="File">
+        <Menu fx:id="FXML_FileMenu" mnemonicParsing="false" text="RFID Reader">
+            <MenuItem fx:id="FXML_Connect" mnemonicParsing="false" onAction="#Hndl_Connect" text="Connect" />
+            <MenuItem fx:id="FXML_Exit" mnemonicParsing="false" onAction="#Hndl_Exit" text="Exit" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="Power">
+            <MenuItem mnemonicParsing="false" onAction="#Hndl_GetPwrLvl" text="Get Power Level" />
+            <Menu mnemonicParsing="false" text="Set Power Level">
                 <items>
-                    <MenuItem fx:id="FXML_Connect" mnemonicParsing="false" onAction="#Hndl_Connect" text="Connect" />
-                    <MenuItem fx:id="FXML_Exit" mnemonicParsing="false" onAction="#Hndl_Exit" text="Exit" />
+                    <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl5" text="5 dDm" />
+                    <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl10" text="10 dDm" />
+                    <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl15" text="15 dBm" />
+                    <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl20" text="20 dBm" />
+                    <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl25" text="25 dBm" />
+                    <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl30" text="30 dBm" />
                 </items>
             </Menu>
-         <Menu mnemonicParsing="false" text="Power">
-           <items>
-             <MenuItem mnemonicParsing="false" onAction="#Hndl_GetPwrLvl" text="Get Power Level" />
-               <Menu mnemonicParsing="false" text="Set Power Level">
-                 <items>
-                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl5" text="5 dDm" />
-                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl10" text="10 dDm" />
-                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl15" text="15 dBm" />
-                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl20" text="20 dBm" />
-                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl25" text="25 dBm" />
-                     <MenuItem mnemonicParsing="false" onAction="#Hndl_SetPwrLvl30" text="30 dBm" />
-                 </items>
-               </Menu>
-           </items>
-         </Menu>
+        </Menu>
          <Menu mnemonicParsing="false" text="Region">
            <items>
              <MenuItem mnemonicParsing="false" onAction="#Hndl_GetRegion" text="Get Region" />
@@ -46,8 +42,8 @@
          <Menu mnemonicParsing="false" text="Database">
            <items>
              <MenuItem mnemonicParsing="false" onAction="#Hndl_DBConnect" text="Connect" />
-               <MenuItem mnemonicParsing="false" text="Update Table" />
                <MenuItem mnemonicParsing="false" onAction="#Hndl_DBDisconnect" text="Disconnect" />
+               <MenuItem mnemonicParsing="false" onAction="#HndlExportDB" text="Export Database" />
            </items>
          </Menu>
             <Menu mnemonicParsing="false" text="Help">

@@ -69,6 +69,21 @@
             <version>3.2.4</version>
             <type>maven-plugin</type>
         </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version> <!-- Use the latest version -->
+        </dependency>
 
 
     </dependencies>
@@ -102,6 +117,7 @@
                             <errTitle>Some error title if your application crashes</errTitle>
                             <classPath>
                                 <preCp>C:\Java\javafx-sdk-21\lib\*</preCp>
+                                <preCp>D:\RFID_InventorySystem\lib\*</preCp>
                                 <mainClass>com.example.rfid_inventorysystem.Main</mainClass>
                             </classPath>
                             <jre>

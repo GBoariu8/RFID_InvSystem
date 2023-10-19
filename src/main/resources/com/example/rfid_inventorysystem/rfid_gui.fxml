@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rfid_inventorysystem.UI.Controllers.MainController">
+<VBox stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rfid_inventorysystem.UI.Controllers.MainController">
   <children>
     <fx:include source="menubar.fxml" />
     <SplitPane focusTraversable="true" stylesheets="@stylesheet.css" VBox.vgrow="ALWAYS">

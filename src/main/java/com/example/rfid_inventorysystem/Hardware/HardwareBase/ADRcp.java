@@ -4,12 +4,20 @@ import com.ad.rcp.OnProtocolListener;
 import com.ad.rcp.ProtocolPacket;
 import com.ad.rcp.RcpBase;
 import com.ad.rcp.RcpMM;
+import com.example.rfid_inventorysystem.Data.Access.DatabaseAccess;
+import com.example.rfid_inventorysystem.Data.Access.DatabaseAccessImpl;
 import com.example.rfid_inventorysystem.Hardware.Parameters.MACROS;
+import com.example.rfid_inventorysystem.Hardware.TagsHandling.TagsHandling;
+import com.example.rfid_inventorysystem.Hardware.TagsHandling.TagsHandlingImpl;
 import com.example.rfid_inventorysystem.Service.FeedbackService;
+
+import java.util.Map;
 
 public class ADRcp {
     private static final ADRcp INSTANCE = new ADRcp();
     private static final RcpBase rcp = new RcpBase();
+    private String currentEPC = "";
+    private DatabaseAccess databaseAccess = DatabaseAccessImpl.getInstance();
 
     private ADRcp() {}
 
@@ -20,6 +28,10 @@ public class ADRcp {
     public RcpBase getRcp() {
         rcp.setOnProtocolListener(this.OnProtocolListener());
         return rcp;
+    }
+
+    public String getCurrentEPC() {
+        return currentEPC;
     }
     private OnProtocolListener OnProtocolListener() {
         return (object, protocolEventArg) -> {
@@ -33,8 +45,8 @@ public class ADRcp {
                 case RcpMM.RCP_MM_READ_C_UII:{
                     if (protocolPacket.Type == RcpBase.RCP_MSG_NOTI){
                         int pcepclen = GetCodelen(protocolPacket.Payload[1]);
-                        String epc = ProtocolPacket.ByteArrayToHexString(protocolPacket.Payload, 3, pcepclen - 2);
-                        response = "EPC is: " + epc;
+                        currentEPC = ProtocolPacket.ByteArrayToHexString(protocolPacket.Payload, 3, pcepclen - 2);
+                        response = "EPC is: " + currentEPC;
                         FeedbackService.getInstance().updateFeedback(response);
                     }
                     break;
@@ -76,4 +88,5 @@ public class ADRcp {
     private static int GetCodelen(byte iData) {
         return (((iData >> 3) + 1) * 2);
     }
+
 }

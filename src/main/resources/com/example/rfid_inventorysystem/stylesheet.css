@@ -29,8 +29,6 @@
     -fx-min-height: 50px;
     -fx-max-width: 300px;
     -fx-max-height: 50px;
-
-
 }
 .button:hover{
     -fx-background-color: #1C3C3C;
@@ -41,7 +39,7 @@
     -fx-background-color: #1F1F1F;
     -fx-text-fill: #000000;
     -fx-control-inner-background: #1F1F1F;
-    -fx-font-size: 16px;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-border-color: #3C3C3C;
     -fx-padding: 5px;
@@ -181,6 +179,7 @@
 }
 
 /* Style the Table Rows */
+
 .table-row-cell {
     -fx-background-color: #1F1F1F;
     -fx-text-fill: #FFFFFF;
@@ -190,6 +189,7 @@
 .table-row-cell:selected {
     -fx-background-color: #3C3C3C;
 }
+
 
 /* Style the Table Cells */
 .table-cell {

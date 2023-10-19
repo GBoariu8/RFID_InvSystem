@@ -7,6 +7,8 @@ module com.example.rfid_inventorysystem {
     requires mysql.connector.j;
     requires java.sql;
     requires usb4java.javax;
+    requires org.apache.poi.poi;
+    requires org.apache.poi.ooxml;
 
     exports com.example.rfid_inventorysystem.Data.Access;
     exports com.example.rfid_inventorysystem.UI;
@@ -18,6 +20,7 @@ module com.example.rfid_inventorysystem {
     exports com.example.rfid_inventorysystem.UI.Controllers;
 
     opens com.example.rfid_inventorysystem to javafx.fxml, usb4java.javax;
+    opens com.example.rfid_inventorysystem.Service.Inventory;
     opens com.example.rfid_inventorysystem.UI.Controllers;
     exports com.example.rfid_inventorysystem;
 }
