@@ -2,6 +2,7 @@ package com.example.rfid_inventorysystem.Hardware.Connection;
 
 import com.ad.comm.usb.SioUsb2;
 import com.example.rfid_inventorysystem.Hardware.HardwareBase.ADSio;
+import com.example.rfid_inventorysystem.Service.LoggerService;
 
 import javax.usb.UsbDevice;
 import javax.usb.UsbDeviceDescriptor;
@@ -23,7 +24,7 @@ public class RFIDConnectionImpl implements RFIDConnection{
                 return true;
             }
         } catch (Exception e){
-            System.out.println("Error while connecting: " + e.getMessage());
+            LoggerService.log(e, "severe", "Error Connecting to Reader.");
             return false;
         }
         return false;
@@ -48,6 +49,7 @@ public class RFIDConnectionImpl implements RFIDConnection{
                 }
             }
         } catch (UsbException e) {
+            LoggerService.log(e, "severe", "Error getting USB Devices.");
             throw new RuntimeException(e);
         }
         return devices;

@@ -19,9 +19,11 @@ public class TagModel {
         this.permission = permission;
         this.date = date;
     }
+    public TagModel(){}
 
-    public TagModel(Integer id, String productName, String suppName, String responsible, Integer price) {
+    public TagModel(Integer id, String epc, String productName, String suppName, String responsible, Integer price) {
         this.id = id;
+        this.EPC = epc;
         this.productName = productName;
         this.suppName = suppName;
         this.responsible = responsible;

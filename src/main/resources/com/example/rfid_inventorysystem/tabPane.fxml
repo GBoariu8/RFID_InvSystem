@@ -14,6 +14,27 @@
 
 <TabPane stylesheets="@stylesheet.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rfid_inventorysystem.UI.Controllers.TabsController">
     <tabs>
+        <Tab text="Database View">
+            <content>
+                <VBox fx:id="vboxContainer">
+                    <TextField fx:id="searchTextField" promptText="Search..." VBox.vgrow="NEVER" />
+                    <TableView fx:id="itemsTableView" stylesheets="@stylesheet.css" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="productNameColumn" prefWidth="150.0" text="Product Name" />
+                            <TableColumn fx:id="supplierColumn" prefWidth="150.0" text="Supplier" />
+                            <TableColumn fx:id="priceColumn" prefWidth="50.0" text="Price" />
+                            <TableColumn fx:id="responsibleColumn" prefWidth="125.0" text="Responsible" />
+                        </columns>
+                    </TableView>
+                    <HBox spacing="10">
+                        <Button fx:id="refreshButton" onAction="#Hndl_Refresh" text="Refresh" VBox.vgrow="NEVER" />
+                        <Button fx:id="deleteButton" onAction="#Hndl_DeleteItem" text="Delete Item" VBox.vgrow="NEVER" />
+                        <Button mnemonicParsing="false" onAction="#Hndl_UpdateItem" text="Update Item" />
+                        <Button mnemonicParsing="false" onAction="#Hndl_AllowPickUp" text="Change permission" />
+                    </HBox>
+                </VBox>
+            </content>
+        </Tab>
         <Tab text="Simple Actions">
          <content>
             <GridPane prefHeight="269.0" prefWidth="264.0">
@@ -34,27 +55,6 @@
                </children>
             </GridPane>
          </content></Tab>
-        <Tab text="Database View">
-            <content>
-                <VBox fx:id="vboxContainer">
-                    <TextField fx:id="searchTextField" promptText="Search..." VBox.vgrow="NEVER" />
-                    <TableView fx:id="itemsTableView" stylesheets="@stylesheet.css" VBox.vgrow="ALWAYS">
-                        <columns>
-                            <TableColumn fx:id="productNameColumn" prefWidth="150.0" text="Product Name" />
-                            <TableColumn fx:id="supplierColumn" prefWidth="150.0" text="Supplier" />
-                            <TableColumn fx:id="priceColumn" prefWidth="50.0" text="Price" />
-                            <TableColumn fx:id="responsibleColumn" prefWidth="125.0" text="Responsible" />
-                        </columns>
-                    </TableView>
-                    <HBox spacing="10">
-                        <Button fx:id="refreshButton" onAction="#refreshTable" text="Refresh" VBox.vgrow="NEVER" />
-                        <Button fx:id="deleteButton" onAction="#Hndl_DeleteItem" text="Delete Item" VBox.vgrow="NEVER" />
-                        <Button mnemonicParsing="false" onAction="#Hndl_UpdateItem" text="Update Item" />
-                        <Button mnemonicParsing="false" onAction="#Hndl_AllowPickUp" text="Change permission" />
-                    </HBox>
-                </VBox>
-            </content>
-        </Tab>
 
     </tabs>
 </TabPane>

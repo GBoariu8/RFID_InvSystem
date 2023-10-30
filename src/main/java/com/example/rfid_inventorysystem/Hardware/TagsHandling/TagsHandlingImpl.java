@@ -10,7 +10,6 @@ import com.example.rfid_inventorysystem.Hardware.HardwareBase.ADRcp;
 import com.example.rfid_inventorysystem.Hardware.HardwareBase.ADSio;
 import com.example.rfid_inventorysystem.Service.FeedbackService;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -49,8 +48,8 @@ public class TagsHandlingImpl implements TagsHandling{
     @Override
     public Map<String, Object> getTagInfo() {
         Map<String, Object> itemInfo = new HashMap<>();
-        if(databaseAccess.isConnected()){
-            ResultSet resultSet = databaseAccess.getTagByEPC(adRcp.getCurrentEPC());
+        if(databaseAccess.DBIsConnected()){
+            ResultSet resultSet = databaseAccess.DBGetTagByEPC(adRcp.getCurrentEPC());
             if(resultSet != null){
                 try {
                     if (resultSet.next()) {

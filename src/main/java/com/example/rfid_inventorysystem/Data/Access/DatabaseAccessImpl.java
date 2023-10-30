@@ -1,10 +1,10 @@
 package com.example.rfid_inventorysystem.Data.Access;
 
+import com.example.rfid_inventorysystem.Service.LoggerService;
 import javafx.scene.control.*;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.*;
@@ -17,11 +17,11 @@ public class DatabaseAccessImpl implements DatabaseAccess{
     public static DatabaseAccessImpl getInstance(){return INSTANCE;}
     private Connection connection;
 
-    public boolean isConnected() {
+    public boolean DBIsConnected() {
         try {
             return (connection != null && connection.isValid(2));
         } catch (SQLException e) {
-            // Log the exception here, if needed
+            LoggerService.log(e, "severe", "Exception in database operation.");
             return false;
         }
     }
@@ -55,6 +55,7 @@ public class DatabaseAccessImpl implements DatabaseAccess{
             alert.setContentText("Connected to the database successfully!");
             alert.showAndWait();
         } catch (Exception e) {
+            LoggerService.log(e, "severe", "Exception in database operation.");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -75,19 +76,18 @@ public class DatabaseAccessImpl implements DatabaseAccess{
                 alert.showAndWait();
 
             } catch (SQLException e) {
+                LoggerService.log(e, "severe", "Exception in database operation.");
                 // Show a popup indicating failure
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Database Disconnection");
                 alert.setHeaderText(null);
                 alert.setContentText("Failed to DBDisconnect from the database.");
                 alert.showAndWait();
-
-                throw new RuntimeException(e);
             }
         }
     }
-    public ResultSet getAllItems(){
-        String query = "SELECT id, productName, suppName, price, responsible FROM inventory_items";
+    public ResultSet DBGetAllItems(){
+        String query = "SELECT id, epc, productName, suppName, price, responsible FROM inventory_items";
         Statement statement;
 
         ResultSet resultSet;
@@ -95,6 +95,7 @@ public class DatabaseAccessImpl implements DatabaseAccess{
             statement = connection.createStatement();
             resultSet = statement.executeQuery(query);
         } catch (SQLException e) {
+            LoggerService.log(e, "severe", "Exception in database operation.");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -105,7 +106,7 @@ public class DatabaseAccessImpl implements DatabaseAccess{
 
         return resultSet;
     }
-    public ResultSet getTagByEPC(String EPC) {
+    public ResultSet DBGetTagByEPC(String EPC) {
         PreparedStatement preparedStatement;
         ResultSet resultSet;
         try{
@@ -114,7 +115,22 @@ public class DatabaseAccessImpl implements DatabaseAccess{
             preparedStatement.setString(1, EPC);
             resultSet = preparedStatement.executeQuery();
         } catch (SQLException e){
+            LoggerService.log(e, "severe", "Exception in database operation.");
             throw new RuntimeException("Error fetching item with EPC: " + EPC, e);
+        }
+        return resultSet;
+    }
+    public ResultSet DBGetTagByID(String id){
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        try{
+            String query = "SELECT * FROM inventory_items WHERE id = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, id);
+            resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e){
+            LoggerService.log(e, "severe", "Exception in database operation.");
+            throw new RuntimeException("Error fetching item with EPC: " + id, e);
         }
         return resultSet;
     }
@@ -141,6 +157,7 @@ public class DatabaseAccessImpl implements DatabaseAccess{
                 return false;
             }
         } catch (SQLException e) {
+            LoggerService.log(e, "severe", "Exception in database operation.");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -161,11 +178,11 @@ public class DatabaseAccessImpl implements DatabaseAccess{
             int affectedRows = preparedStatement.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            LoggerService.log(e, "severe", "Exception in database operation.");
             return false;
         }
     }
-    public boolean DBUpdateDate(String EPC){
+    public void DBUpdateDate(String EPC){
         String query = "UPDATE inventory_items SET date=? WHERE EPC=?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -173,11 +190,9 @@ public class DatabaseAccessImpl implements DatabaseAccess{
             preparedStatement.setString(1, date);
             preparedStatement.setString(2, EPC);
 
-            int affectedRows = preparedStatement.executeUpdate();
-            return affectedRows > 0;
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
+            LoggerService.log(e, "severe", "Exception in database operation.");
         }
     }
     public boolean DBUpdatePickUp(int id){
@@ -191,7 +206,7 @@ public class DatabaseAccessImpl implements DatabaseAccess{
                 currentPermission = resultSet.getInt("permission");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LoggerService.log(e, "severe", "Exception in database operation.");
             return false;
         }
 
@@ -209,25 +224,25 @@ public class DatabaseAccessImpl implements DatabaseAccess{
             int affectedRows = preparedStatement.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
+            LoggerService.log(e, "severe", "Exception in database operation.");
             return false;
         }
     }
     public boolean DBAddItem(Map<String, String> itemData){
         String query = "INSERT INTO inventory_items (epc, productName, suppName, price, responsible, date) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, (String) itemData.get("epc"));
-            preparedStatement.setString(2, (String) itemData.get("productName"));
-            preparedStatement.setString(3, (String) itemData.get("supplierName"));
+            preparedStatement.setString(1, itemData.get("epc"));
+            preparedStatement.setString(2, itemData.get("productName"));
+            preparedStatement.setString(3, itemData.get("supplierName"));
             preparedStatement.setInt(4, Integer.parseInt(itemData.get("price")));
-            preparedStatement.setString(5, (String) itemData.get("responsible"));
-            preparedStatement.setString(6, (String) itemData.get("date"));
+            preparedStatement.setString(5, itemData.get("responsible"));
+            preparedStatement.setString(6, itemData.get("date"));
             int affectedRows = preparedStatement.executeUpdate();
 
             return affectedRows > 0;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LoggerService.log(e, "severe", "Exception in database operation.");
         }
         return false;
     }
@@ -242,12 +257,11 @@ public class DatabaseAccessImpl implements DatabaseAccess{
                 return count > 0;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LoggerService.log(e, "severe", "Exception in database operation.");
         }
         return false;
     }
-    public boolean DBExportToExcel(){
-        boolean result = false;
+    public void DBExportToExcel(){
         String query = "SELECT productName, suppName, price, responsible FROM inventory_items";
         Statement statement;
 
@@ -278,35 +292,14 @@ public class DatabaseAccessImpl implements DatabaseAccess{
             try (FileOutputStream fileOut = new FileOutputStream("Inventory_" + date + ".xlsx")) {
                 workbook.write(fileOut);
             } catch (IOException e) {
+                LoggerService.log(e, "severe", "Exception in creating Excel.");
                 throw new RuntimeException(e);
             }
 
             workbook.close();
 
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
+            LoggerService.log(e, "severe", "Exception in database operation.");
         }
-        return result;
-    }
-    public String DBGetEPCByPName(String productName){
-        String query = "SELECT EPC FROM inventory_items WHERE product_name = ?";
-        PreparedStatement preparedStatement;
-        String EPC = null;
-
-        try {
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, productName);
-            ResultSet rs = preparedStatement.executeQuery();
-
-            if (rs.next()) {
-                EPC = rs.getString("EPC");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Error fetching EPC for product: " + productName, e);
-        }
-
-        return EPC;
     }
 }
